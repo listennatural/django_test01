@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- bootstrap documentation says these two tags are required -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>lingting django</title>
+
+    <!-- Introduce the bootstrap CSS file -->
+    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/statics/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="/statics/css/theme.css">
+    <link rel="icon" href="/statics/icon/favicon.ico" sizes="48x48" type="">
+    {% block css %}
+        <!-- The css file is introduces here -->
+    {% endblock %}
+</head>
+<body>
+    <!-- fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- content -->
+        <div class="container">
+            <!-- title -->
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- title click -->
+                <a class="navbar-brand" href="">Lingting Django</a>
+            </div>
+            <!-- navagation tags -->
+            <div class="navbar-collapse collapse">
+                <!-- tags -->
+                <ul class="nav navbar-nav">
+                    <!-- nav tag -->
+                    <li>
+                        <!-- nav head -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" data-index='0' class=""><a href="javascript:void(0)">First</a></li>
+                            <li role="presentation" data-index='1' class=""><a href="javascript:void(0)">Second</a></li>
+                        </ul>
+                        <!-- nav content -->
+                        <ul class="nav nav-pills" data-index='0' style="display: none" role="tablist">
+                            <li role="presentation" class=""><a href="">Bilibili</a></li>
+                            <li role="presentation" class=""><a href="">Bilibili</a></li>
+                        </ul>
+                        <!-- nav content -->
+                        <ul class="nav nav-pills" data-index='1' style="display: none" role="tablist">
+                            <li role="presentation" class=""><a href="">Bilibili</a></li>
+                            <li role="presentation" class=""><a href="">Bilibili</a></li>
+                            <li role="presentation" class=""><a href="">Bilibili</a></li>
+                        </ul>
+                    </li>
+                    <!-- dropdown -->
+                    <li class="dropdown">
+                        <!-- dropdown head -->
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            First
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">Bilibili</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Internal</li>
+                            <li><a href="">Bilibili</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+    <div class="container theme-showcase" role="main">
+        {% block body %}
+        <!-- The body is written there -->
+        {% endblock %}
+    </div>
+{% block javascript %}
+<!-- The javascript file is introduces here -->
+{% endblock %}
+<!-- The javascript plug-in of Bootstrap relies on jquery, so you need to introduce jquery first -->
+<script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/docs.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        /* Down here are the events that fixe the top navigation */
+        // Navigation tags mouseover
+        $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").mouseover(function(event) {
+            // Select peer tags and filter
+            // $(this).nextAll('.nav.nav-pills').css({
+            //     display: 'block',
+            // });
+
+            $(this).addClass('active')
+
+            // Gets the subordinate navigation tags through the data-index attribute
+            var index = $(this).attr("data-index")
+
+            $(this).parent('.nav.nav-tabs').nextAll('.nav.nav-pills').eq(index).css({
+                display: 'block',
+            });
+        });
+        $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").mouseout(function(event) {
+            // Select peer tags and filter
+            // $(this).nextAll('.nav.nav-pills').css({
+            //     display: 'none',
+            // });
+
+            $(this).removeClass('active')
+
+            // Gets the subordinate navigation tags through the data-index attribute
+            var index = $(this).attr("data-index")
+
+            $(this).parent('.nav.nav-tabs').nextAll('.nav.nav-pills').css({
+                display: 'none',
+            });
+        });
+
+
+        $(".nav.nav-pills").mouseover(function(event) {
+            // Select peer tags and filter
+            $(this).css({
+                display: 'block',
+            });
+            $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").eq($(this).attr('data-index')).addClass('active')
+        });
+        $(".nav.nav-pills").mouseout(function(event) {
+            // Select peer tags and filter
+            $(this).css({
+                display: 'none',
+            });
+
+            $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").removeClass('active')
+        });
+
+
+        $(".nav.nav-pills > li[role='presentation']").mouseover(function(event) {
+            $(this).addClass('active')
+        });
+        $(".nav.nav-pills > li[role='presentation']").mouseout(function(event) {
+            $(this).removeClass('active')
+        });
+    })
+</script>
+</body>
+</html>
