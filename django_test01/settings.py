@@ -128,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 # The path used to load the static file
-STATIC_URL = '/statics/'
+STATIC_URL = '/static/'
 
 # add the static file root directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'statics')

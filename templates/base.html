@@ -70,6 +70,7 @@
                         </ul>
                     </li>
                 </ul>
+            </div>
         </div>
     </nav>
     <div class="container theme-showcase" role="main">
@@ -86,9 +87,13 @@
 <script type="text/javascript" src="/static/js/docs.min.js"></script>
 <script type="text/javascript">
     $(function(){
-        /* Down here are the events that fixe the top navigation */
+        const nav_fixed_li_head = $(".nav.nav-tabs[role='tablist'] > li[role='presentation']");
+        const nav_fixed_content = $(".nav.nav-pills");
+        const nav_fixed_li_content = $(".nav.nav-pills > li[role='presentation']")
+
+        /* Down here are the events that fixed the top navigation */
         // Navigation tags mouseover
-        $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").mouseover(function(event) {
+        nav_fixed_li_head.mouseover(function(event) {
             // Select peer tags and filter
             // $(this).nextAll('.nav.nav-pills').css({
             //     display: 'block',
@@ -103,7 +108,7 @@
                 display: 'block',
             });
         });
-        $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").mouseout(function(event) {
+        nav_fixed_li_head.mouseout(function(event) {
             // Select peer tags and filter
             // $(this).nextAll('.nav.nav-pills').css({
             //     display: 'none',
@@ -120,27 +125,27 @@
         });
 
 
-        $(".nav.nav-pills").mouseover(function(event) {
+        nav_fixed_content.mouseover(function(event) {
             // Select peer tags and filter
             $(this).css({
                 display: 'block',
             });
-            $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").eq($(this).attr('data-index')).addClass('active')
+            nav_fixed_li_head.eq($(this).attr('data-index')).addClass('active')
         });
-        $(".nav.nav-pills").mouseout(function(event) {
+        nav_fixed_content.mouseout(function(event) {
             // Select peer tags and filter
             $(this).css({
                 display: 'none',
             });
 
-            $(".nav.nav-tabs[role='tablist'] > li[role='presentation']").removeClass('active')
+            nav_fixed_li_head.removeClass('active')
         });
 
 
-        $(".nav.nav-pills > li[role='presentation']").mouseover(function(event) {
+        nav_fixed_li_content.mouseover(function(event) {
             $(this).addClass('active')
         });
-        $(".nav.nav-pills > li[role='presentation']").mouseout(function(event) {
+        nav_fixed_li_content.mouseout(function(event) {
             $(this).removeClass('active')
         });
     })
