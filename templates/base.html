@@ -40,35 +40,35 @@
                     <li>
                         <!-- nav head -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" data-index='0' class=""><a href="javascript:void(0)">First</a></li>
-                            <li role="presentation" data-index='1' class=""><a href="javascript:void(0)">Second</a></li>
+                            <li role="presentation" data-index='0' class=""><a href="javascript:void(0)">项目</a></li>
+{#                            <li role="presentation" data-index='1' class=""><a href="javascript:void(0)">Second</a></li>#}
                         </ul>
                         <!-- nav content -->
                         <ul class="nav nav-pills" data-index='0' style="display: none" role="tablist">
-                            <li role="presentation" class=""><a href="">Bilibili</a></li>
+                              <li role="presentation" class=""><a href="">Bilibili</a></li>
                             <li role="presentation" class=""><a href="">Bilibili</a></li>
                         </ul>
                         <!-- nav content -->
-                        <ul class="nav nav-pills" data-index='1' style="display: none" role="tablist">
-                            <li role="presentation" class=""><a href="">Bilibili</a></li>
-                            <li role="presentation" class=""><a href="">Bilibili</a></li>
-                            <li role="presentation" class=""><a href="">Bilibili</a></li>
-                        </ul>
+{#                        <ul class="nav nav-pills" data-index='1' style="display: none" role="tablist">#}
+{#                            <li role="presentation" class=""><a href="">Bilibili</a></li>#}
+{#                            <li role="presentation" class=""><a href="">Bilibili</a></li>#}
+{#                            <li role="presentation" class=""><a href="">Bilibili</a></li>#}
+{#                        </ul>#}
                     </li>
                     <!-- dropdown -->
-                    <li class="dropdown">
-                        <!-- dropdown head -->
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            First
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="">Bilibili</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Internal</li>
-                            <li><a href="">Bilibili</a></li>
-                        </ul>
-                    </li>
+{#                    <li class="dropdown">#}
+{#                        <!-- dropdown head -->#}
+{#                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">#}
+{#                            First#}
+{#                            <span class="caret"></span>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li><a href="">Bilibili</a></li>#}
+{#                            <li role="separator" class="divider"></li>#}
+{#                            <li class="dropdown-header">Internal</li>#}
+{#                            <li><a href="">Bilibili</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
                 </ul>
             </div>
         </div>
@@ -82,14 +82,14 @@
 <!-- The javascript file is introduces here -->
 {% endblock %}
 <!-- The javascript plug-in of Bootstrap relies on jquery, so you need to introduce jquery first -->
-<script type="text/javascript" src="/static/js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="/static/js/bootstrap.js"></script>
-<script type="text/javascript" src="/static/js/docs.min.js"></script>
+<script type="text/javascript" src="/statics/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/statics/js/bootstrap.js"></script>
+<script type="text/javascript" src="/statics/js/docs.min.js"></script>
 <script type="text/javascript">
     $(function(){
         const nav_fixed_li_head = $(".nav.nav-tabs[role='tablist'] > li[role='presentation']");
         const nav_fixed_content = $(".nav.nav-pills");
-        const nav_fixed_li_content = $(".nav.nav-pills > li[role='presentation']")
+        const nav_fixed_li_content = $(".nav.nav-pills > li[role='presentation']");
 
         /* Down here are the events that fixed the top navigation */
         // Navigation tags mouseover

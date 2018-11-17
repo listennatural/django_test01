@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'index.apps.IndexConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_test01.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -83,13 +81,12 @@ DATABASES = {
     'default': {
         "ENGINE": 'django.db.backends.mysql',
         'NAME': "django_test01",
-        'user': 'lt',
-        'Password': '',
-        'host': '127.0.0.1',
-        'port': '3306'
+        'USER': 'lt',
+        'password': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -109,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -123,23 +119,19 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 # The path used to load the static file
-STATIC_URL = '/static/'
+STATIC_URL = '/statics/'
 
 # add the static file root directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 
 STATICFILES_DIRS = (
     ('css', os.path.join(STATIC_ROOT, 'css')),
-    # ('img', os.path.join(STATIC_ROOT, 'img')),
     ('js', os.path.join(STATIC_ROOT, 'js')),
     ('fonts', os.path.join(STATIC_ROOT, 'fonts')),
-    # ('plug', os.path.join(STATIC_ROOT, 'plug')),
     ('icon', os.path.join(STATIC_ROOT, 'icon')),
     ('image', os.path.join(STATIC_ROOT, 'image')),
 )
-

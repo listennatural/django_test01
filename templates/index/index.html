@@ -1,23 +1,10 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-6">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>First</th>
-                        <th>Second</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img data-src="holder.js/300x200" class="img-thumbnail" src="" alt=""></td>
-                        <td><img data-src="holder.js/300x200" class="img-thumbnail" src="" alt=""></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    {% for project in projects %}
+        <a id="{{ project.project_name }}" href="/{{ project.project_link }}">
+            <img data-src="holder.js/300x200" class="img-thumbnail" src="/statics/{{ project.project_img }}" alt="{{ project.project_name }}">
+        </a>
+    {% endfor %}
 
-{% endblock%}
+{% endblock %}
