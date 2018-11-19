@@ -4,6 +4,7 @@ from .models import *
 
 
 def index(request):
+    request.session["title"] = ""
     projects = Project.objects.order_by()
 
     context = {
