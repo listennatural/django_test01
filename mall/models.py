@@ -75,3 +75,10 @@ class Levels(models.Model):
 class Coupons(models.Model):
     name = models.CharField(max_length=255, help_text="优惠券名称")
     deleted = models.IntegerField(help_text="是否删除", default=0)
+
+
+class Admin(models.Model):
+    permission = models.IntegerField(help_text="权限")
+    account = models.CharField(max_length=255, help_text="账号", unique=True)
+    password = models.CharField(max_length=255, help_text="密码")
+    createtime = models.CharField(max_length=255, help_text="创建时间")
