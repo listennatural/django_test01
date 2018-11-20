@@ -8,3 +8,6 @@ def index(request):
     }
 
     return render(request, "mall/index.html", context)
+
+def admin(request):
+    request.session["title"] = "后台管理"
