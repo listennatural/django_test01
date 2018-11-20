@@ -2,12 +2,9 @@ from django.shortcuts import render
 
 
 def index(request):
-    request.session["title"] = "聆听"
+    request.session["title"] = "商城"
     context = {
         "tag": "index",
     }
 
     return render(request, "mall/index.html", context)
-
-def admin(request):
-    request.session["title"] = "后台管理"
